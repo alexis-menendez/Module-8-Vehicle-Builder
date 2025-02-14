@@ -107,7 +107,7 @@ createVehicle();
 - Display results in the command line.
 
 **Example: (typescript)**
-
+```
 async function performAction(vehicle: Vehicle) {
     const { action } = await inquirer.prompt([
         {
@@ -126,7 +126,7 @@ async function performAction(vehicle: Vehicle) {
 
     if (action !== "Exit") await performAction(vehicle);
 }
-
+```
 
 
 
