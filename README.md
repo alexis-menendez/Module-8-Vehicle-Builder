@@ -44,7 +44,7 @@ To set up and run this project on your local machine, follow these steps:
 	  * git clone <(https://github.com/alexis-menendez/Vehicle-Builder)>
 
 3. Navigate to the project directory:
-	* cd <your-project-folder>
+	* cd your-project-folder
 
 4. Install Dependencies:
 	* Run the following command to install all required dependencies:
