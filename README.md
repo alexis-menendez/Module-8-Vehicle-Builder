@@ -102,7 +102,7 @@ There are currently no automated tests for this project
 * I also used ChatGPT to:
   	* Provide assitance debugging my code when I encountered some syntax errors that I was unable to locate on my own. The commits will reflect this, however, I am happy to provide transcripts of the conversation with ChatGPT upon request.
   	* Review my completed project and offer suggestions for improvement.
-  	* Create detailed explanations for certain concepts which informed my writing
+  	* Create detailed explanations for certain concepts which informed my writing.
 
 ## Contact
 
