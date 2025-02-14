@@ -1,5 +1,5 @@
-##  Vehicle Builder
-**Description**
+#  Vehicle Builder
+##  **Description**
 
 Vehicle Builder is a TypeScript-based command-line application that allows users to create and interact with different types of vehicles. The program enables users to define cars, trucks, and motorbikes, each with unique attributes and actions. Users can navigate through prompts to build their desired vehicle and perform specific actions such as driving, towing (for trucks), or performing a wheelie (for motorbikes).
 
