@@ -173,12 +173,12 @@ async function performAction(vehicle: Vehicle) {
     - README includes the walkthrough video link.
 
 ##  Final Checks
-    - ✅ Vehicle creation includes Truck and Motorbike
-    - ✅ Truck and Motorbike have unique attributes & actions
-    - ✅ User can interact with created vehicles
-    - ✅ Inquirer prompts work correctly
-    - ✅ Walkthrough video is linked in README.md
-    - ✅ Code is pushed to GitHub
+    - Vehicle creation includes Truck and Motorbike
+    - Truck and Motorbike have unique attributes & actions
+    - User can interact with created vehicles
+    - Inquirer prompts work correctly
+    - Walkthrough video is linked in README.md
+    - Code is pushed to GitHub
 
 Once everything is complete, submit your GitHub repository link and the walkthrough video link. 🎉
 
