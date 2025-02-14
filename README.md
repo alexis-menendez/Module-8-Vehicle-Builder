@@ -49,7 +49,7 @@ To set up and run this project on your local machine, follow these steps:
 4. Install Dependencies:
 	* Run the following command to install all required dependencies:
 	  * npm install inquirer
-	    This will install:
+	  * This will install:
 	    * inquirer (for command-line interaction)
 	    * typescript (for compiling TypeScript to JavaScript)
 	    * @types/inquirer and @types/node (for TypeScript type definitions)
@@ -57,12 +57,12 @@ To set up and run this project on your local machine, follow these steps:
 5. Build the Project:
 	* Compile the TypeScript code to JavaScript by running:
 	  * npm run build
-	    This will generate the dist/ folder containing the compiled files.
+	  * This will generate the dist/ folder containing the compiled files.
 
 6. Run the Application:
 	* Start the CLI application by executing:
 	  * npm start
-	    Follow the on-screen prompts to create and interact with vehicles.
+	* Follow the on-screen prompts to create and interact with vehicles.
    
 ## Usage
 
