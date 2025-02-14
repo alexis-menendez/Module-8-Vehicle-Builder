@@ -25,7 +25,7 @@ Before making changes, review the existing files:
 - Ensure Truck adheres to the AbleToTow interface if applicable.
 
 **Example: (typescript)**
-
+```
 import { Vehicle } from "./Vehicle";
 
 export class Truck extends Vehicle {
@@ -40,7 +40,7 @@ export class Truck extends Vehicle {
         console.log(`${this.make} ${this.model} is towing a trailer with capacity of ${this.towingCapacity} lbs.`);
     }
 }
-
+```
 
 
 ##  Step 4: Implement Motorbike.ts
@@ -49,7 +49,7 @@ export class Truck extends Vehicle {
 - Implement an action exclusive to Motorbike (e.g., doWheelie()).
 
 **Example: (typescript)**
-
+```
 import { Vehicle } from "./Vehicle";
 
 export class Motorbike extends Vehicle {
@@ -64,7 +64,7 @@ export class Motorbike extends Vehicle {
         console.log(`${this.make} ${this.model} does a wheelie!`);
     }
 }
-
+```
 
 
 ##  Step 5: Update Cli.ts to Include Truck & Motorbike Options
@@ -72,7 +72,7 @@ export class Motorbike extends Vehicle {
 - Ensure user input allows selection of these vehicle types.
 
 **Example: (typescript)**
-
+```
 import inquirer from "inquirer";
 import { Car } from "./Car";
 import { Truck } from "./Truck";
@@ -99,6 +99,7 @@ async function createVehicle() {
 }
 
 createVehicle();
+```
 
 
 
