@@ -107,7 +107,11 @@ createVehicle();
 - Display results in the command line.
 
 **Example: (typescript)**
-
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>On the importance of sentence length</b></p>
+<p style='margin-left:1em;'>
 async function performAction(vehicle: Vehicle) {
     const { action } = await inquirer.prompt([
         {
@@ -126,6 +130,10 @@ async function performAction(vehicle: Vehicle) {
 
     if (action !== "Exit") await performAction(vehicle);
 }
+</p>
+<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Gary Provost</b> <i>(100 Ways to Improve Your Writing, 1985)</i>
+</p></span>
+</div>
 
 
 
