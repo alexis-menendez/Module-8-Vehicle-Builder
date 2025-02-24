@@ -78,10 +78,33 @@ class Cli {
           selectedVehicle.reverse();
 
         } else if (answers.action === 'Tow' && 'tow' in selectedVehicle) {
-          selectedVehicle.tow(selectedVehicle);
-
+          (selectedVehicle as Truck).tow(selectedVehicle as Truck);
+            inquirer
+            .prompt([
+              {
+              type: 'list',
+              name: 'vehicleToTow',
+              message: 'Select a vehicle to tow',
+              choices: this.vehicles
+                .filter(vehicle => vehicle.vin !== (selectedVehicle as Truck).vin && vehicle instanceof Truck)
+                .map(vehicle => {
+                return {
+                  name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
+                  value: vehicle.vin,
+                };
+                }),
+              },
+            ])
+            .then((towAnswer) => {
+              const vehicleToTow = this.vehicles.find(vehicle => vehicle.vin === towAnswer.vehicleToTow);
+              if (vehicleToTow) {
+              (selectedVehicle as Truck).tow(vehicleToTow);
+              }
+              this.performActions();
+            });
+            return;
         } else if (answers.action === 'Perform Wheelie' && 'wheelie' in selectedVehicle) {
-          selectedVehicle.wheelie();
+          (selectedVehicle as Motorbike).wheelie();
 
         } else if (answers.action === 'Exit') {
           console.log("Exiting program...");

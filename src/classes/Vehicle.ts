@@ -6,17 +6,23 @@ class Vehicle implements Driveable {
   // Declare properties of the Vehicle class
   started: boolean;
   currentSpeed: number;
+  make: string;
+  model: string;
 
   // Constructor for the Vehicle class
-  constructor() {
+  constructor(make: string, model: string) {
     this.started = false;
     this.currentSpeed = 0;
+    this.make = make;
+    this.model = model;
   }
 
   // Method to print vehicle details
   printDetails(): void {
     console.log(`Vehicle started: ${this.started}`);
     console.log(`Vehicle current speed: ${this.currentSpeed} mph`);
+    console.log('Vehicle make:', this.make);
+    console.log('Vehicle model:', this.model);
   }
 
   // Method to start the vehicle

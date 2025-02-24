@@ -10,8 +10,8 @@ class Motorbike extends Vehicle {
 
   vin: string;
   color: string;
-  make: string;
-  model: string;
+  override make: string;
+  override model: string;
   year: number;
   weight: number;
   topSpeed: number;
@@ -29,7 +29,7 @@ class Motorbike extends Vehicle {
     wheels: Wheel[] = []
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
-    super();
+    super(make, model);
 
     // TODO: The constructor should initialize the properties of the Motorbike class
     this.vin = vin;
