@@ -29,7 +29,7 @@ class Motorbike extends Vehicle {
     wheels: Wheel[] = []
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
-    super(vin, make, model, year, color);
+    super();
 
     // TODO: The constructor should initialize the properties of the Motorbike class
     this.vin = vin;
@@ -51,7 +51,7 @@ class Motorbike extends Vehicle {
   }
 
   // TODO: Override the printDetails method from the Vehicle class
-  printDetails(): void {
+  override printDetails(): void {
     // TODO: The method should call the printDetails method of the parent class
     super.printDetails();
 
@@ -66,7 +66,7 @@ class Motorbike extends Vehicle {
       Color: ${this.color}
       Weight: ${this.weight} lbs
       Top Speed: ${this.topSpeed} mph
-      Wheels: ${this.wheels.map(wheel => `${wheel.brand} (${wheel.diameter} inch)`).join(", ")}
+      Wheels: ${this.wheels.map(wheel => `${wheel.getTireBrand} (${wheel.getDiameter} inch)`).join(", ")}
     `);
   }
 }

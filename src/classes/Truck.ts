@@ -37,7 +37,7 @@ class Truck extends Vehicle implements AbleToTow {
     wheels: Wheel[] = []
   ) {
     // Call the parent Vehicle class constructor
-    super(vin, make, model, year, color);
+    super();
     
     this.vin = vin;
     this.make = make;
@@ -75,7 +75,7 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: The method should log the details of the Truck
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
   // Override the printDetails method from the Vehicle class
-  printDetails(): void {
+  override printDetails(): void {
     // Call the parent class method (if applicable)
     super.printDetails();
 
@@ -90,7 +90,7 @@ class Truck extends Vehicle implements AbleToTow {
       Weight: ${this.weight} lbs
       Top Speed: ${this.topSpeed} mph
       Towing Capacity: ${this.towingCapacity} lbs
-      Wheels: ${this.wheels.map(wheel => `${wheel.brand} (${wheel.diameter} inch)`).join(", ")}
+      Wheels: ${this.wheels.map(wheel => `${wheel.getTireBrand} (${wheel.getDiameter} inch)`).join(", ")}
     `);
   }
 }
