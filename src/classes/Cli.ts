@@ -1,9 +1,11 @@
 // Importing classes from other files
 import inquirer from "inquirer";
-import Truck from "./Truck";
-import Car from "./Car";
-import Motorbike from "./Motorbike";
-import Wheel from "./Wheel";
+import Truck from "./Truck.js";
+import Car from "./Car.js";
+import Motorbike from "./Motorbike.js";
+import Vehicle from "./Vehicle.js";
+import Wheel from "./Wheel.js";
+
 
 // TODO: Implement logic to allow the user to perform actions.
 // Define the Cli class
