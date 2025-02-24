@@ -75,7 +75,7 @@ To set up and run this project on your local machine, follow these steps:
 
 ## Walkthrough Video
 
-* [Walkthrough Video]([https://drive.google.com/file/d/1AVRHAOM_FYpr0sbzLSJkNS7NEEhWHYT_/view])
+* [Walkthrough Video](https://drive.google.com/file/d/1AVRHAOM_FYpr0sbzLSJkNS7NEEhWHYT_/view)
 
 ## Contributing
 
@@ -94,7 +94,7 @@ There are currently no automated tests for this project
 ## Documentation
 
 * [Project Repository](https://github.com/alexis-menendez/Vehicle-Builder)
-* [Walkthrough Video]([https://drive.google.com/file/d/1AVRHAOM_FYpr0sbzLSJkNS7NEEhWHYT_/view])
+* [Walkthrough Video](https://drive.google.com/file/d/1AVRHAOM_FYpr0sbzLSJkNS7NEEhWHYT_/view)
 
 ## Acknowledgements
 
