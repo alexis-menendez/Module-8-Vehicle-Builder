@@ -25,6 +25,16 @@ class Vehicle implements Driveable {
     console.log('Vehicle started');
   }
 
+  // Method to drive the vehicle
+  drive(): void {
+    // Check if the vehicle is started
+    if (this.started) {
+      console.log('Vehicle driving');
+    } else {
+      console.log('Start the vehicle first');
+    }
+  }
+
   // Method to accelerate the vehicle
   accelerate(change: number): void {
     // Check if the vehicle is started

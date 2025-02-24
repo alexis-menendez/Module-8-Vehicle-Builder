@@ -6,13 +6,9 @@ import Motorbike from "./Motorbike.js";
 import Vehicle from "./Vehicle.js";
 import Wheel from "./Wheel.js";
 
-
 // TODO: Implement logic to allow the user to perform actions.
 // Define the Cli class
 class Cli {
-  performActions(): void {
-    console.log("Performing actions...");
-  }
   //  STARTED, NOT COMPLETE
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
@@ -27,13 +23,77 @@ class Cli {
     this.vehicles = vehicles;
   }
 
-  // Static method to generate a vin
-  static generateVin(): string {
-    // Return a random string
-    return (
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15)
-    );
+  // Method to perform actions on a vehicle
+  performActions(): void {
+    const selectedVehicle = this.vehicles.find(vehicle => vehicle.vin === this.selectedVehicleVin) as Vehicle;
+
+    if (!selectedVehicle) {
+      console.log("No vehicle selected. Returning to main menu...");
+      this.startCli();
+      return;
+    }
+
+    inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'action',
+          message: `What would you like to do with your ${selectedVehicle.make} ${selectedVehicle.model}?`,
+          choices: ['Start', 'Drive', 'Accelerate', 'Decelerate', 'Stop', 'Turn', 'Reverse', 'Tow', 'Perform Wheelie', 'Exit']
+        }
+      ])
+      .then((answers) => {
+        if (answers.action === 'Start' && typeof selectedVehicle.start === 'function') {
+          selectedVehicle.start();
+
+        } else if (answers.action === 'Drive' && typeof selectedVehicle.drive === 'function') {
+          selectedVehicle.drive();
+
+        } else if (answers.action === 'Accelerate' && typeof selectedVehicle.accelerate === 'function') {
+            selectedVehicle.accelerate(10);
+
+        } else if (answers.action === 'Decelerate' && typeof selectedVehicle.decelerate === 'function') {
+          selectedVehicle.decelerate(10);
+
+        } else if (answers.action === 'Stop' && typeof selectedVehicle.stop === 'function') {
+          selectedVehicle.stop();
+
+        } else if (answers.action === 'Turn' && typeof selectedVehicle.turn === 'function') {
+          inquirer
+            .prompt([
+              {
+                type: 'list',
+                name: 'direction',
+                message: "Which direction do you want to turn?",
+                choices: ["Left", "Right"]
+              }
+            ])
+            .then((turnAnswer) => {
+              selectedVehicle.turn(turnAnswer.direction);
+              this.performActions();
+            });
+          return; 
+
+        } else if (answers.action === 'Reverse' && typeof selectedVehicle.reverse === 'function') {
+          selectedVehicle.reverse();
+
+        } else if (answers.action === 'Tow' && 'tow' in selectedVehicle) {
+          selectedVehicle.tow(selectedVehicle);
+
+        } else if (answers.action === 'Perform Wheelie' && 'wheelie' in selectedVehicle) {
+          selectedVehicle.wheelie();
+
+        } else if (answers.action === 'Exit') {
+          console.log("Exiting program...");
+          process.exit();
+
+        } else {
+          console.log("This action is not available for the selected vehicle.");
+        }
+
+        // After performing an action, ask again
+        this.performActions();
+      });
   }
 
   // Method to choose a vehicle from existing vehicles
@@ -58,6 +118,15 @@ class Cli {
         // Perform actions on the selected vehicle
         this.performActions();
       });
+  }
+
+  // Static method to generate a vin
+  static generateVin(): string {
+    // Return a random string
+    return (
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15)
+    );
   }
 
   // Method to create a vehicle
@@ -86,36 +155,12 @@ class Cli {
   createCar(): void {
     inquirer
       .prompt([
-        {
-          type: 'input',
-          name: 'color',
-          message: 'Enter Color',
-        },
-        {
-          type: 'input',
-          name: 'make',
-          message: 'Enter Make',
-        },
-        {
-          type: 'input',
-          name: 'model',
-          message: 'Enter Model',
-        },
-        {
-          type: 'input',
-          name: 'year',
-          message: 'Enter Year',
-        },
-        {
-          type: 'input',
-          name: 'weight',
-          message: 'Enter Weight',
-        },
-        {
-          type: 'input',
-          name: 'topSpeed',
-          message: 'Enter Top Speed',
-        },
+        { type: 'input', name: 'color', message: 'Enter Color' },
+        { type: 'input', name: 'make', message: 'Enter Make' },
+        { type: 'input', name: 'model', message: 'Enter Model' },
+        { type: 'input', name: 'year', message: 'Enter Year' },
+        { type: 'input', name: 'weight', message: 'Enter Weight' },
+        { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
       ])
       .then((answers) => {
         const car = new Car(
@@ -138,41 +183,13 @@ class Cli {
   createTruck(): void {
     inquirer
       .prompt([
-        {
-          type: 'input',
-          name: 'color',
-          message: 'Enter Color',
-        },
-        {
-          type: 'input',
-          name: 'make',
-          message: 'Enter Make',
-        },
-        {
-          type: 'input',
-          name: 'model',
-          message: 'Enter Model',
-        },
-        {
-          type: 'input',
-          name: 'year',
-          message: 'Enter Year',
-        },
-        {
-          type: 'input',
-          name: 'weight',
-          message: 'Enter Weight',
-        },
-        {
-          type: 'input',
-          name: 'topSpeed',
-          message: 'Enter Top Speed',
-        },
-        {
-          type: 'input',
-          name: 'towingCapacity',
-          message: 'Enter Towing Capacity',
-        },
+        { type: 'input', name: 'color', message: 'Enter Color' },
+        { type: 'input', name: 'make', message: 'Enter Make' },
+        { type: 'input', name: 'model', message: 'Enter Model' },
+        { type: 'input', name: 'year', message: 'Enter Year' },
+        { type: 'input', name: 'weight', message: 'Enter Weight' },
+        { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
+        { type: 'input', name: 'towingCapacity', message: 'Enter Towing Capacity' },
       ])
       .then((answers) => {
         const truck = new Truck(
@@ -196,36 +213,12 @@ class Cli {
   createMotorbike(): void {
     inquirer
       .prompt([
-        {
-          type: 'input',
-          name: 'color',
-          message: 'Enter Color',
-        },
-        {
-          type: 'input',
-          name: 'make',
-          message: 'Enter Make',
-        },
-        {
-          type: 'input',
-          name: 'model',
-          message: 'Enter Model',
-        },
-        {
-          type: 'input',
-          name: 'year',
-          message: 'Enter Year',
-        },
-        {
-          type: 'input',
-          name: 'weight',
-          message: 'Enter Weight',
-        },
-        {
-          type: 'input',
-          name: 'topSpeed',
-          message: 'Enter Top Speed',
-        },
+        { type: 'input', name: 'color', message: 'Enter Color' },
+        { type: 'input', name: 'make', message: 'Enter Make' },
+        { type: 'input', name: 'model', message: 'Enter Model' },
+        { type: 'input', name: 'year', message: 'Enter Year' },
+        { type: 'input', name: 'weight', message: 'Enter Weight' },
+        { type: 'input', name: 'topSpeed', message: 'Enter Top Speed' },
       ])
       .then((answers) => {
         const motorbike = new Motorbike(
