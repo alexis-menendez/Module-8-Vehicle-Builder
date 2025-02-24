@@ -39,6 +39,9 @@ class Truck extends Vehicle implements AbleToTow {
     // Call the parent Vehicle class constructor
     super(vin, make, model, year, color);
     
+    this.vin = vin;
+    this.make = make;
+    this.model = model;
     this.year = year;
     this.color = color;
     this.weight = weight;

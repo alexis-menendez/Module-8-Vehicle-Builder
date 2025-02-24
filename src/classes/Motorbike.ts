@@ -32,6 +32,9 @@ class Motorbike extends Vehicle {
     super(vin, make, model, year, color);
 
     // TODO: The constructor should initialize the properties of the Motorbike class
+    this.vin = vin;
+    this.make = make;
+    this.model = model;
     this.year = year;
     this.color = color;
     this.weight = weight;
