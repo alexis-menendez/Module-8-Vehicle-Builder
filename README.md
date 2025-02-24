@@ -67,7 +67,7 @@ To set up and run this project on your local machine, follow these steps:
 ## Usage
 
 1. Run the application using command:
-	* node start
+	* npm start
 2. Select a vehicle type (Car, Truck, or Motorbike).
 3. Enter details specific to the selected vehicle type.
 4. Perform actions such as driving, towing a trailer, or doing a wheelie.
