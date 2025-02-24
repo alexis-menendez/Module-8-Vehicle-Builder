@@ -1,6 +1,6 @@
 // Importing Vehicle and Wheel classes
-import Vehicle from './Vehicle.js';
-import Wheel from './Wheel.js';
+import Vehicle from './Vehicle';
+import Wheel from './Wheel';
 
 // TODO: The Motorbike class should extend the Vehicle class
 class Motorbike extends Vehicle {
@@ -29,7 +29,7 @@ class Motorbike extends Vehicle {
     wheels: Wheel[] = []
   ) {
     // TODO: The constructor should call the constructor of the parent class, Vehicle
-    super(vin, make, model);
+    super(vin, make, model, year, color);
 
     // TODO: The constructor should initialize the properties of the Motorbike class
     this.year = year;
@@ -38,7 +38,7 @@ class Motorbike extends Vehicle {
     this.topSpeed = topSpeed;
 
     // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-    this.wheels = wheels.length === 2 ? wheels : Array(2).fill(new Wheel(17, "Default Brand"));
+    this.wheels = wheels.length === 2 ? wheels : [new Wheel(17, "Default Brand"), new Wheel(17, "Default Brand")];
   }
 
   // TODO: Implement the wheelie method
@@ -50,6 +50,8 @@ class Motorbike extends Vehicle {
   // TODO: Override the printDetails method from the Vehicle class
   printDetails(): void {
     // TODO: The method should call the printDetails method of the parent class
+    super.printDetails();
+
     // TODO: The method should log the details of the Motorbike
     // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
     console.log(`

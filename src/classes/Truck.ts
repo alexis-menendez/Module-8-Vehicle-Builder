@@ -1,14 +1,9 @@
-
-// Export the Truck class as the default export
-export default Truck;
-
-
 // Import the Vehicle, Motorbike, Car, Wheel, and AbleToTow classes/interfaces
-import Vehicle from './Vehicle.js';
-import Motorbike from './Motorbike.js';
-import Car from './Car.js';
-import Wheel from './Wheel.js';
-import AbleToTow from '../interfaces/AbleToTow.js';
+import Vehicle from './Vehicle';
+import Motorbike from './Motorbike';
+import Car from './Car';
+import Wheel from './Wheel';
+import AbleToTow from '../interfaces/AbleToTow';
 
 // The Truck class extends Vehicle and implements the AbleToTow interface
 class Truck extends Vehicle implements AbleToTow {
@@ -42,7 +37,7 @@ class Truck extends Vehicle implements AbleToTow {
     wheels: Wheel[] = []
   ) {
     // Call the parent Vehicle class constructor
-    super(vin, make, model);
+    super(vin, make, model, year, color);
     
     this.year = year;
     this.color = color;
@@ -50,14 +45,14 @@ class Truck extends Vehicle implements AbleToTow {
     this.topSpeed = topSpeed;
     this.towingCapacity = towingCapacity;
 
-    // Ensure the truck has exactly 4 wheels; if not, create default wheels
-    this.wheels = wheels.length === 4 ? wheels : Array(4).fill(new Wheel(18, "Default Brand"));
+    // Ensure the truck has exactly 4 wheels; if not, create 4 new default wheels
+    this.wheels = wheels.length === 4 ? wheels : [new Wheel(18, "Default Brand"), new Wheel(18, "Default Brand"), new Wheel(18, "Default Brand"), new Wheel(18, "Default Brand")];
   }
 
   // TODO: Implement the tow method from the AbleToTow interface
   // Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
-    // TODO: Get the make an model of the vehicle if it exists
+    // TODO: Get the make and model of the vehicle if it exists
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // TODO: If it is, log that the vehicle is being towed
     // TODO: If it is not, log that the vehicle is too heavy to be towed
@@ -78,6 +73,9 @@ class Truck extends Vehicle implements AbleToTow {
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
   // Override the printDetails method from the Vehicle class
   printDetails(): void {
+    // Call the parent class method (if applicable)
+    super.printDetails();
+
     // Log the Truck details
     console.log(`
       Truck Details:
