@@ -120,7 +120,7 @@ class Cli {
           Cli.generateVin(),
           answers.make,
           answers.model,
-          parseInt(answers.year),
+          parseInt(answers.year)
           answers.color,
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
