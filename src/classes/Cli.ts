@@ -5,8 +5,12 @@ import Car from "./Car";
 import Motorbike from "./Motorbike";
 import Wheel from "./Wheel";
 
+// TODO: Implement logic to allow the user to perform actions.
 // Define the Cli class
 class Cli {
+  performActions(): void {
+    console.log("Performing actions...");
+  }
   //  STARTED, NOT COMPLETE
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
